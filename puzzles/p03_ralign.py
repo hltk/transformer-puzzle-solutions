@@ -20,6 +20,10 @@ def ralign_spec(ldefault="0", seq=None):
 
 
 def ralign(ldefault="0", seq=tokens):
-    has_non_pad_after = ((query("_") != key(seq)) & (key(indices) > query(indices))).value(1)
-    cut = ((key(has_non_pad_after) == query(0)) & (query("_") == key(seq))).value(1)
+    has_non_pad_after = (
+        (query("_") != key(seq)) & (key(indices) > query(indices))
+    ).value(1)
+    cut = (
+        (key(has_non_pad_after) == query(0)) & (query("_") == key(seq))
+    ).value(1)
     return shift(cut, ldefault, seq)
