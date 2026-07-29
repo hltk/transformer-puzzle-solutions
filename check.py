@@ -5,6 +5,7 @@ from puzzles.p01_index import index, index_spec
 from puzzles.p02_shift import shift, shift_spec
 from puzzles.p03_ralign import ralign, ralign_spec
 from puzzles.p04_split import split, split_spec
+from puzzles.p05_minimum import minimum, minimum_spec
 
 SEQ = [2, 1, 3, 2, 4]
 SEQ2 = [3, 4, 3, -1, 2]
@@ -39,4 +40,6 @@ check(
     split("-", 0)(list("xyz-ax")),
     split_spec("-", 0, list("xyz-ax")),
 )
+check("minimum", minimum()(SEQ), minimum_spec(SEQ))
+check("minimum/tie", minimum()([2, 1, 1]), minimum_spec([2, 1, 1]))
 print("all ok")
