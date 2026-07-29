@@ -36,3 +36,9 @@ SOLUTIONS
       has_non_pad_after = ((query("_") != key(seq)) & (key(indices) > query(indices))).value(1)
       cut = ((key(has_non_pad_after) == query(0)) & (query("_") == key(seq))).value(1)
       shift(cut, ldefault, seq)
+
+   4  split
+      i = (query(v) == key(seq)).value(indices)
+      blank = "0" if not get_first_part else "_"
+      x = where((i > indices) if get_first_part else (i < indices), seq, blank)
+      ralign("0", x)
