@@ -1,0 +1,13 @@
+[project]
+name = "transformer-puzzle-solutions"
+version = "1.0.0"
+description = "Hand-written solutions to Sasha Rush's Transformer Puzzles"
+readme = "README"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "raspy @ git+https://github.com/srush/RASPy",
+    "chalk-diagrams>=0.2",
+]
+
+[tool.uv]
+package = false

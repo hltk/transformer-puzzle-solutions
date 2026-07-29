@@ -1,0 +1,29 @@
+TRANSFORMER PUZZLES
+===================
+
+  My solutions to Sasha Rush's Transformer Puzzles.
+
+      https://github.com/srush/Transformer-Puzzles
+
+  Transformer Puzzles are coding puzzles based on the internals of
+  the Transformer. Each asks you to reimplement a small sequence
+  operation using only RASP-style attention primitives.
+
+
+RULES
+-----
+
+  1. Like a transformer, length is fixed. Operations act on the
+     entire sequence in parallel.
+
+  2. There is a global indices giving each position. Use where to
+     branch on a condition, as in NumPy or PyTorch.
+
+  3. The main operation is attention: build a selector from key and
+     query, then aggregate with .value(...).
+
+  4. Solutions may use earlier puzzle functions.
+
+
+SOLUTIONS
+---------
