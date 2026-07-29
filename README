@@ -27,3 +27,5 @@ RULES
 
 SOLUTIONS
 ---------
+
+   0  head           (key(indices) == query(0)).value(seq)
