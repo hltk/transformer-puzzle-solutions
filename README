@@ -84,3 +84,12 @@ SOLUTIONS
       return (
           (key(seq) == query(token)) & (key(tiebreak) == query(0))
       ).value(indices)
+
+  7  slide
+
+      nn = (
+          (key(seq) != query("<")) & (key(indices) >= query(indices))
+      ).value(1)
+      return (
+          (key(seq) != query("<")) & (key(nn) == query(nn))
+      ).value(seq)
