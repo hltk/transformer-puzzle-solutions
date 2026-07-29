@@ -40,56 +40,33 @@ SOLUTIONS
 
   2  shift
 
-      return (key(indices) == query(indices - i)).value(
-          seq, default=default
-      )
+      return (key(indices) == query(indices - i)).value(seq, default=default)
 
   3  ralign
 
-      has_non_pad_after = (
-          (query("_") != key(seq)) & (key(indices) > query(indices))
-      ).value(1)
-      cut = (
-          (key(has_non_pad_after) == query(0))
-          & (query("_") == key(seq))
-      ).value(1)
+      has_non_pad_after = ((query("_") != key(seq)) & (key(indices) > query(indices))).value(1)
+      cut = ((key(has_non_pad_after) == query(0)) & (query("_") == key(seq))).value(1)
       return shift(cut, ldefault, seq)
 
   4  split
 
       i = (query(v) == key(seq)).value(indices)
       blank = "0" if not get_first_part else "_"
-      x = where(
-          (i > indices) if get_first_part else (i < indices),
-          seq,
-          blank,
-      )
+      x = where((i > indices) if get_first_part else (i < indices), seq, blank)
       return ralign("0", x)
 
   5  minimum
 
       smaller = (key(seq) < query(seq)).value(1)
-      tiebreak = (
-          (key(seq) == query(seq)) & (key(indices) < query(indices))
-      ).value(1)
-      return (
-          (key(smaller) == query(0)) & (key(tiebreak) == query(0))
-      ).value(seq)
+      tiebreak = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
+      return ((key(smaller) == query(0)) & (key(tiebreak) == query(0))).value(seq)
 
   6  first
 
-      tiebreak = (
-          (key(seq) == query(token)) & (key(indices) < query(indices))
-      ).value(1)
-      return (
-          (key(seq) == query(token)) & (key(tiebreak) == query(0))
-      ).value(indices)
+      tiebreak = ((key(seq) == query(token)) & (key(indices) < query(indices))).value(1)
+      return ((key(seq) == query(token)) & (key(tiebreak) == query(0))).value(indices)
 
   7  slide
 
-      nn = (
-          (key(seq) != query("<")) & (key(indices) >= query(indices))
-      ).value(1)
-      return (
-          (key(seq) != query("<")) & (key(nn) == query(nn))
-      ).value(seq)
+      nn = ((key(seq) != query("<")) & (key(indices) >= query(indices))).value(1)
+      return ((key(seq) != query("<")) & (key(nn) == query(nn))).value(seq)

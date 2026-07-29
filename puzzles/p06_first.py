@@ -15,9 +15,5 @@ def first_spec(token, seq):
 
 
 def first(token, seq=tokens):
-    tiebreak = (
-        (key(seq) == query(token)) & (key(indices) < query(indices))
-    ).value(1)
-    return (
-        (key(seq) == query(token)) & (key(tiebreak) == query(0))
-    ).value(indices)
+    tiebreak = ((key(seq) == query(token)) & (key(indices) < query(indices))).value(1)
+    return ((key(seq) == query(token)) & (key(tiebreak) == query(0))).value(indices)

@@ -13,9 +13,5 @@ def minimum_spec(seq):
 
 def minimum(seq=tokens):
     smaller = (key(seq) < query(seq)).value(1)
-    tiebreak = (
-        (key(seq) == query(seq)) & (key(indices) < query(indices))
-    ).value(1)
-    return (
-        (key(smaller) == query(0)) & (key(tiebreak) == query(0))
-    ).value(seq)
+    tiebreak = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
+    return ((key(smaller) == query(0)) & (key(tiebreak) == query(0))).value(seq)
