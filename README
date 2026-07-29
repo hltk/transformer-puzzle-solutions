@@ -5,24 +5,24 @@ TRANSFORMER PUZZLES
 
       https://github.com/srush/Transformer-Puzzles
 
-  Transformer Puzzles are coding puzzles based on the internals of
-  the Transformer. Each asks you to reimplement a small sequence
-  operation using only RASP-style attention primitives.
+  Short coding puzzles based on the internals of the Transformer.
+  Based on Thinking Like Transformers (Weiss, Goldberg, Yahav) and
+  the RASPy blog post.
+
+  The goal is to build a Transformer that does elementary-school
+  addition — e.g. turn "19492+23919" into the correct sum.
 
 
-RULES
+MODEL
 -----
 
-  1. Like a transformer, length is fixed. Operations act on the
-     entire sequence in parallel.
+  Each exercise is a function from seq to seq. Length is fixed;
+  everything runs in parallel over the sequence. A global indices
+  gives each position. where branches per position, as in NumPy.
 
-  2. There is a global indices giving each position. Use where to
-     branch on a condition, as in NumPy or PyTorch.
-
-  3. The main operation is attention: build a selector from key and
-     query, then aggregate with .value(...).
-
-  4. Solutions may use earlier puzzle functions.
+  The main tool is attention: build a selector from key and query,
+  combine selectors with logical ops, then aggregate with
+  .value(...). Earlier puzzle functions may be reused.
 
   Bodies below are the function body only, including return.
 
