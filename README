@@ -106,3 +106,10 @@ BONUS
       b = ((key(seq) == query(")")) & (query(indices) > key(indices))).value(1)
       return a - b
 
+  4  induct
+
+      earlier = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
+      prev = ((key(seq) == query(seq)) & (query(earlier - 1) == key(earlier))).value(indices)
+      followed = (query(prev + 1) == key(indices)).value(seq)
+      return where(earlier == 0, default, followed)
+
