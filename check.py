@@ -11,6 +11,7 @@ from puzzles.p07_slide import slide, slide_spec
 from puzzles.p08_add import add, add_spec
 from puzzles.p09_reverse import reverse, reverse_spec
 from puzzles.p10_histogram import histogram, histogram_spec
+from puzzles.p11_sort import sort, sort_spec
 
 SEQ = [2, 1, 3, 2, 4]
 SEQ2 = [3, 4, 3, -1, 2]
@@ -58,4 +59,6 @@ check("reverse", reverse()(SEQ), reverse_spec(SEQ))
 check("reverse/str", reverse()(list("abcde")), reverse_spec(list("abcde")))
 check("histogram", histogram()(SEQ), histogram_spec(SEQ))
 check("histogram/str", histogram()(list("abacab")), histogram_spec(list("abacab")))
+check("sort", sort()(SEQ), sort_spec(SEQ))
+check("sort/tie", sort()([2, 1, 1]), sort_spec([2, 1, 1]))
 print("all ok")
