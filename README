@@ -68,8 +68,8 @@ SOLUTIONS
 
   7  slide
 
-      nn = ((key(seq) != query(match)) & (key(indices) >= query(indices))).value(1)
-      return ((key(seq) != query(match)) & (key(nn) == query(nn))).value(seq)
+      count = ((key(seq) != query(match)) & (key(indices) >= query(indices))).value(1)
+      return ((key(seq) != query(match)) & (key(count) == query(count))).value(seq)
 
   8  add
 
@@ -96,9 +96,9 @@ BONUS
 
   2  sort
 
-      mi = (key(seq) < query(seq)).value(1)
-      tieb = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
-      return (key(mi + tieb) == query(indices)).value(seq)
+      smaller = (key(seq) < query(seq)).value(1)
+      tiebreak = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
+      return (key(smaller + tiebreak) == query(indices)).value(seq)
 
   3  dyck_depth
 

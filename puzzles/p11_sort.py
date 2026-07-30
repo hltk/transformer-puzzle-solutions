@@ -11,6 +11,6 @@ def sort_spec(seq):
 
 
 def sort(seq=tokens):
-    mi = (key(seq) < query(seq)).value(1)
-    tieb = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
-    return (key(mi + tieb) == query(indices)).value(seq)
+    smaller = (key(seq) < query(seq)).value(1)
+    tiebreak = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
+    return (key(smaller + tiebreak) == query(indices)).value(seq)
