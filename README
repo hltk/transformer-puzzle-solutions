@@ -100,3 +100,9 @@ BONUS
       tieb = ((key(seq) == query(seq)) & (key(indices) < query(indices))).value(1)
       return (key(mi + tieb) == query(indices)).value(seq)
 
+  3  dyck_depth
+
+      a = ((key(seq) == query("(")) & (query(indices) >= key(indices))).value(1)
+      b = ((key(seq) == query(")")) & (query(indices) > key(indices))).value(1)
+      return a - b
+
