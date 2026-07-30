@@ -8,6 +8,7 @@ from puzzles.p04_split import split, split_spec
 from puzzles.p05_minimum import minimum, minimum_spec
 from puzzles.p06_first import first, first_spec
 from puzzles.p07_slide import slide, slide_spec
+from puzzles.p08_add import add, add_spec
 
 SEQ = [2, 1, 3, 2, 4]
 SEQ2 = [3, 4, 3, -1, 2]
@@ -48,4 +49,7 @@ check("first", first(3)(SEQ), first_spec(3, SEQ))
 check("first/str", first("l")(list("hello")), first_spec("l", list("hello")))
 check("slide", slide("<")(list("1<<2")), slide_spec("<", list("1<<2")))
 check("slide/2", slide("<")(list("3<<<1<<3")), slide_spec("<", list("3<<<1<<3")))
+check("add", add()(list("22+384")), add_spec(list("22+384")))
+check("add/carry", add()(list("99+1")), add_spec(list("99+1")))
+check("add/long", add()(list("1+9999")), add_spec(list("1+9999")))
 print("all ok")

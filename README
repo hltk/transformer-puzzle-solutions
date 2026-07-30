@@ -70,3 +70,11 @@ SOLUTIONS
 
       nn = ((key(seq) != query("<")) & (key(indices) >= query(indices))).value(1)
       return ((key(seq) != query("<")) & (key(nn) == query(nn))).value(seq)
+
+  8  add
+
+      a = atoi(split("+", True, seq))
+      b = atoi(split("+", False, seq))
+      carry = where(a + b == 9, "<", where(a + b >= 10, "1", "0"))
+      carry = shift(-1, "0", slide("<", carry))
+      return (a + b + atoi(carry)) % 10
