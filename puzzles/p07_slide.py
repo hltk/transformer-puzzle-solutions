@@ -20,5 +20,5 @@ def slide_spec(match, seq):
 
 
 def slide(match="<", seq=tokens):
-    nn = ((key(seq) != query("<")) & (key(indices) >= query(indices))).value(1)
-    return ((key(seq) != query("<")) & (key(nn) == query(nn))).value(seq)
+    nn = ((key(seq) != query(match)) & (key(indices) >= query(indices))).value(1)
+    return ((key(seq) != query(match)) & (key(nn) == query(nn))).value(seq)
