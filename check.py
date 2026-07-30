@@ -9,6 +9,7 @@ from puzzles.p05_minimum import minimum, minimum_spec
 from puzzles.p06_first import first, first_spec
 from puzzles.p07_slide import slide, slide_spec
 from puzzles.p08_add import add, add_spec
+from puzzles.p09_reverse import reverse, reverse_spec
 
 SEQ = [2, 1, 3, 2, 4]
 SEQ2 = [3, 4, 3, -1, 2]
@@ -52,4 +53,6 @@ check("slide/2", slide("<")(list("3<<<1<<3")), slide_spec("<", list("3<<<1<<3"))
 check("add", add()(list("22+384")), add_spec(list("22+384")))
 check("add/carry", add()(list("99+1")), add_spec(list("99+1")))
 check("add/long", add()(list("1+9999")), add_spec(list("1+9999")))
+check("reverse", reverse()(SEQ), reverse_spec(SEQ))
+check("reverse/str", reverse()(list("abcde")), reverse_spec(list("abcde")))
 print("all ok")

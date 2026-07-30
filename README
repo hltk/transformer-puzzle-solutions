@@ -78,3 +78,14 @@ SOLUTIONS
       carry = where(a + b == 9, "<", where(a + b >= 10, "1", "0"))
       carry = shift(-1, "0", slide("<", carry))
       return (a + b + atoi(carry)) % 10
+
+
+BONUS
+-----
+
+  Extra puzzles beyond the original set.
+
+  0  reverse
+
+      l = (key(1) == query(1)).value(1)
+      return (key(indices) == query(l - indices - 1)).value(seq)
