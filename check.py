@@ -10,6 +10,7 @@ from puzzles.p06_first import first, first_spec
 from puzzles.p07_slide import slide, slide_spec
 from puzzles.p08_add import add, add_spec
 from puzzles.p09_reverse import reverse, reverse_spec
+from puzzles.p10_histogram import histogram, histogram_spec
 
 SEQ = [2, 1, 3, 2, 4]
 SEQ2 = [3, 4, 3, -1, 2]
@@ -55,4 +56,6 @@ check("add/carry", add()(list("99+1")), add_spec(list("99+1")))
 check("add/long", add()(list("1+9999")), add_spec(list("1+9999")))
 check("reverse", reverse()(SEQ), reverse_spec(SEQ))
 check("reverse/str", reverse()(list("abcde")), reverse_spec(list("abcde")))
+check("histogram", histogram()(SEQ), histogram_spec(SEQ))
+check("histogram/str", histogram()(list("abacab")), histogram_spec(list("abacab")))
 print("all ok")

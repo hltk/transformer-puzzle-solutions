@@ -89,3 +89,7 @@ BONUS
 
       l = (key(1) == query(1)).value(1)
       return (key(indices) == query(l - indices - 1)).value(seq)
+
+  1  histogram
+
+      return (key(seq) == query(seq)).value(1)
